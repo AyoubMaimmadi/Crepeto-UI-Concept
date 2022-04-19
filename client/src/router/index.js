@@ -1,11 +1,11 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
-import Customers from "../pages/customers";
-import Home from "../pages/home";
-import Locations from "../pages/locations";
-import Orders from "../pages/orders";
-import Products from "../pages/products";
-import Suppliers from "../pages/suppliers";
+import React from 'react'
+import { Switch, Route } from 'react-router-dom'
+import Customers from '../pages/customers'
+import Home from '../pages/home'
+import Locations from '../pages/locations'
+import Orders from '../pages/orders'
+import Products from '../pages/products'
+import Suppliers from '../pages/suppliers'
 
 const AppRouter = () => {
   return (
@@ -17,7 +17,7 @@ const AppRouter = () => {
       <Route path="/products" component={Products} />
       <Route path="/suppliers" component={Suppliers} />
     </Switch>
-  );
-};
+  )
+}
 
-export default AppRouter;
+export default AppRouter
