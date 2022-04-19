@@ -1,30 +1,30 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import PageContainer from "../../components/PageContainer";
-import InfoCard from "../../components/InfoCard";
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
+import PageContainer from '../../components/PageContainer'
+import InfoCard from '../../components/InfoCard'
 
 const useStyles = makeStyles({
   header: {
-    fontWeight: "bold",
-    fontSize: "36px",
-    margin: "14px"
+    fontWeight: 'bold',
+    fontSize: '36px',
+    margin: '14px',
   },
   description: {
-    fontSize: "18px",
-    marginLeft: "14px",
-    marginBottom: "8px"
-  }
-});
+    fontSize: '18px',
+    marginLeft: '14px',
+    marginBottom: '8px',
+  },
+})
 
 function Home() {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <PageContainer>
       <h2>Home</h2>
       <InfoCard>
-        <Typography className={classes.header}>U-Save</Typography>
+        <Typography className={classes.header}>Crepeto</Typography>
         <Typography className={classes.description}>
           An online market for post-secondary students
         </Typography>
@@ -44,7 +44,7 @@ function Home() {
         <Typography className={classes.description}>
           Every year, post-secondary students across North America struggle
           financially, due to increasing costs of tuition and school-related
-          learning material. U-Save aims to provide a space for post-secondary
+          learning material. Crepeto aims to provide a space for post-secondary
           students to obtain nutritious ingredients at affordable prices, to
           ensure that students are well-fed and able to focus on their studies.
         </Typography>
@@ -54,7 +54,7 @@ function Home() {
           Design and Tech Stack
         </Typography>
         <Typography className={classes.description}>
-          U-Save was designed using the <b>PERN</b> stack:
+          Crepeto was designed using the <b>PERN</b> stack:
           <br />- PostgreSQL
           <br />- Express
           <br />- React
@@ -97,7 +97,7 @@ function Home() {
         </Typography>
       </InfoCard>
     </PageContainer>
-  );
+  )
 }
 
-export default Home;
+export default Home

@@ -1,4 +1,4 @@
-# U-Save
+# Crepeto
 
 - Final project for SOFE 3700U - Data Management Systems
 - An online grocery store for post-secondary students
@@ -17,7 +17,7 @@
 
 # Checking out the repo
 
-- Clone the repo using `git clone https://github.com/AnsonTu/U-Save.git`
+- Clone the repo using `git clone ...`
 
 # Setting up PostgreSQL
 
@@ -60,7 +60,7 @@ CREATE TABLE {table_name} (
 )
 ```
 
-- For the U-Save application, four tables need to be created: `customer`, `supplier`, `product`, and `order_details`.
+- For the Crepeto application, four tables need to be created: `customer`, `supplier`, `product`, and `order_details`.
 
 ```
 CREATE TABLE customer (
@@ -129,6 +129,6 @@ INSERT INTO supplier(name, address, phone)
 
 - To run the client, `cd` into the client directory, and enter `yarn start`.
 - To run the server, `cd` into the server directory, and enter `npm run dev`.
-- The client, server, and database must all be online and running for the U-Save application to be fully functional.
+- The client, server, and database must all be online and running for the Crepeto application to be fully functional.
 - To check the status of the client, go to `localhost:3000` on the browser.
 - To check the status of the server, go to `localhost:3090` on the browser.
