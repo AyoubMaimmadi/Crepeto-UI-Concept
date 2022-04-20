@@ -86,7 +86,7 @@ CREATE TABLE product (
 CREATE TABLE order_details (
   order_id SERIAL PRIMARY KEY,
   order_date DATE,
-  shipping_date DATE,
+  order_time DATE,
   product_quantity INTEGER,
   customer_id INTEGER REFERENCES customer(customer_id),
   product_id INTEGER REFERENCES product(product_id)
