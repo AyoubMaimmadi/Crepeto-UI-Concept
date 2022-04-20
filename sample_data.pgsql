@@ -64,7 +64,7 @@ ALTER SEQUENCE public.customer_customer_id_seq OWNED BY public.customer.customer
 CREATE TABLE public.order_details (
     order_id integer NOT NULL,
     order_date date,
-    shipping_date date,
+    order_time date,
     product_quantity integer,
     customer_id integer,
     product_id integer
@@ -219,7 +219,7 @@ COPY public.customer (customer_id, name, phone, email, address) FROM stdin;
 -- Data for Name: order_details; Type: TABLE DATA; Schema: public; Owner: dev
 --
 
-COPY public.order_details (order_id, order_date, shipping_date, product_quantity, customer_id, product_id) FROM stdin;
+COPY public.order_details (order_id, order_date, order_time, product_quantity, customer_id, product_id) FROM stdin;
 1	2020-09-05	2020-09-06	1	2	2
 2	2020-09-05	2020-09-06	2	2	4
 3	2020-09-27	2020-09-28	2	4	5

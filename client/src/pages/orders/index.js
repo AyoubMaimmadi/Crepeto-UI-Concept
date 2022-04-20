@@ -1,92 +1,92 @@
-import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import Divider from "@material-ui/core/Divider";
-import PageContainer from "../../components/PageContainer";
-import AppTable from "../../components/AppTable";
-import { getResources, createResource } from "../../helpers";
+import React, { useState, useEffect } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Grid from '@material-ui/core/Grid'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import Divider from '@material-ui/core/Divider'
+import PageContainer from '../../components/PageContainer'
+import AppTable from '../../components/AppTable'
+import { getResources, createResource } from '../../helpers'
 
 const useStyles = makeStyles({
   dateField: {
     maxWidth: 175,
-    margin: "16px 20px 20px 0"
+    margin: '16px 20px 20px 0',
   },
   textField: {
     maxWidth: 175,
-    marginRight: "20px",
-    marginBottom: "20px"
+    marginRight: '20px',
+    marginBottom: '20px',
   },
   button: {
-    margin: "0 20px"
+    margin: '0 20px',
   },
   divider: {
-    margin: "30px"
-  }
-});
+    margin: '30px',
+  },
+})
 
 function Orders() {
-  const classes = useStyles();
-  const [formInput, setFormInput] = useState({});
-  const [orders, setOrders] = useState([]);
-  const [customerId, setCustomerId] = useState("");
-  const [orderId, setOrderId] = useState("");
+  const classes = useStyles()
+  const [formInput, setFormInput] = useState({})
+  const [orders, setOrders] = useState([])
+  const [customerId, setCustomerId] = useState('')
+  const [orderId, setOrderId] = useState('')
 
   // Get all orders when the page is rendered
   useEffect(() => {
-    getOrders();
-  }, []);
+    getOrders()
+  }, [])
 
   // Get all orders in the database
   const getOrders = () => {
-    getResources(`/orders`, setOrders);
-  };
+    getResources(`/orders`, setOrders)
+  }
 
   // Save the orderId
   const getOrderId = (event) => {
-    setOrderId(event.target.value);
-  };
+    setOrderId(event.target.value)
+  }
   // Get order based on passed orderId
   const getOrder = () => {
-    getResources(`/orders/${orderId}`, setOrders);
-  };
+    getResources(`/orders/${orderId}`, setOrders)
+  }
 
   // Get the customer name, product name, and product quantity for all orders
   const getFullOrderInfo = () => {
-    getResources(`/orders/full-order-info`, setOrders);
-  };
+    getResources(`/orders/full-order-info`, setOrders)
+  }
 
   // Save the inputted customerId
   const getCustomerId = (event) => {
-    setCustomerId(event.target.value);
-  };
+    setCustomerId(event.target.value)
+  }
   // Get order and shipping dates for all orders that belong to a customer
   const getOrderDates = () => {
     if (customerId) {
-      getResources(`/orders/customer-order-dates/${customerId}`, setOrders);
+      getResources(`/orders/customer-order-dates/${customerId}`, setOrders)
     }
-  };
+  }
   // Get all products a customer has ordered
   const getCustomerProducts = () => {
     if (customerId) {
-      getResources(`/orders/products-from-orders/${customerId}`, setOrders);
+      getResources(`/orders/products-from-orders/${customerId}`, setOrders)
     }
-  };
+  }
 
   // Save the form input
   const handleFormChange = (event) => {
     setFormInput({
       ...formInput,
-      [event.target.name]: event.target.value
-    });
-  };
+      [event.target.name]: event.target.value,
+    })
+  }
   // Create a new product and update the table
   const createProduct = (event) => {
-    event.preventDefault();
-    createResource(`/orders/add-order`, formInput);
-    getOrders();
-  };
+    event.preventDefault()
+    createResource(`/orders/add-order`, formInput)
+    getOrders()
+  }
 
   return (
     <PageContainer>
@@ -104,7 +104,7 @@ function Orders() {
           />
           <TextField
             className={classes.dateField}
-            name="shipping_date"
+            name="order_time"
             type="date"
             required
             onChange={handleFormChange}
@@ -191,6 +191,6 @@ function Orders() {
       </Grid>
       <Divider className={classes.divider} />
     </PageContainer>
-  );
+  )
 }
-export default Orders;
+export default Orders
