@@ -6,7 +6,7 @@ const supplier = require('./controllers/supplier')
 module.exports = (app) => {
   // Route for checking server status
   app.get('/', (req, res) => {
-    res.send({ server_status: 'Online' })
+    res.send(`Welcome to Crepeto's API`)
   })
   // Routes for the customer table
   app.get('/customers', customer.getCustomers)
