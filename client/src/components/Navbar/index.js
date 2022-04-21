@@ -14,10 +14,17 @@ import { Link, useLocation } from 'react-router-dom'
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    backgroundColor: '#b9fbc0',
+    backgroundColor: '#95f7ba',
   },
   tabs: {
-    backgroundColor: '#b9fbc0',
+    backgroundColor: '#2ce4e8',
+  },
+  icon: {
+    color: '#564946',
+  },
+  text: {
+    color: '#564946',
+    fontWeight: '700',
   },
 })
 
@@ -41,42 +48,48 @@ function Navbar() {
         textColor="secondary"
       >
         <Tab
-          icon={<HomeIcon />}
+          icon={<HomeIcon className={classes.icon} />}
+          className={classes.text}
           component={Link}
           to={'/'}
           value="/"
           label="HOME"
         />
         <Tab
-          icon={<ShoppingCartIcon />}
+          icon={<ShoppingCartIcon className={classes.icon} />}
+          className={classes.text}
           component={Link}
           to={'/products'}
           value="/products"
           label="PRODUCTS"
         />
         <Tab
-          icon={<PeopleIcon />}
+          icon={<PeopleIcon className={classes.icon} />}
+          className={classes.text}
           component={Link}
           to={'/customers'}
           value="/customers"
           label="CUSTOMERS"
         />
         <Tab
-          icon={<MenuBookIcon />}
+          icon={<MenuBookIcon className={classes.icon} />}
+          className={classes.text}
           component={Link}
           to={'/orders'}
           value="/orders"
           label="ORDERS"
         />
         <Tab
-          icon={<LocalShippingIcon />}
+          icon={<LocalShippingIcon className={classes.icon} />}
+          className={classes.text}
           component={Link}
           to={'/suppliers'}
           value="/suppliers"
           label="SUPPLIERS"
         />
         <Tab
-          icon={<LocationCityIcon />}
+          icon={<LocationCityIcon className={classes.icon} />}
+          className={classes.text}
           component={Link}
           to={'/employees'}
           value="/employees"
