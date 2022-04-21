@@ -46,9 +46,9 @@ psql -d crepeto -U dev
 
 - A new local database needs to be created with the appropriate settings to test the application locally.
 - To connect to Postgres using the created `dev` user, enter `psql -d postgres -U dev`.
-- To create a new database, enter `CREATE DATABASE usave;`.
-- To check if the `usave` database was successfully created, enter `\list`.
-- To connect to the `usave` database, enter `\c usave`, or quit the current session by entering `\q`, and then enter `psql -d crepeto -U dev`.
+- To create a new database, enter `CREATE DATABASE crepeto;`.
+- To check if the `crepeto` database was successfully created, enter `\list`.
+- To connect to the `crepeto` database, enter `\c crepeto`, or quit the current session by entering `\q`, and then enter `psql -d crepeto -U dev`.
 
 # Creating tables for the database
 
@@ -101,7 +101,7 @@ CREATE TABLE order_details (
 # Populating the local database (IMPORT METHOD)
 
 - Attached to this code repository is a sample data file, `sample_data.psql`.
-- To import this data, enter `psql usave < sample_data.psql`. This should populate the local database's tables with the data from the file.
+- To import this data, enter `psql crepeto < sample_data.psql`. This should populate the local database's tables with the data from the file.
 - If this step was successful, skip ahead to `# Project Installation`.
 - If this step was not successful, test data will need to be manually added to the local database. To do so, please follow the steps below, under the section `# Adding data to the database (MANUAL INPUT)`.
 
