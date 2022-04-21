@@ -1,75 +1,75 @@
-import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import Divider from "@material-ui/core/Divider";
-import PageContainer from "../../components/PageContainer";
-import AppTable from "../../components/AppTable";
-import { getResources, createResource } from "../../helpers";
+import React, { useState, useEffect } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Grid from '@material-ui/core/Grid'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import Divider from '@material-ui/core/Divider'
+import PageContainer from '../../components/PageContainer'
+import AppTable from '../../components/AppTable'
+import { getResources, createResource } from '../../helpers'
 
 const useStyles = makeStyles({
   textField: {
     maxWidth: 175,
-    marginRight: "20px",
-    marginBottom: "20px"
+    marginRight: '20px',
+    marginBottom: '20px',
   },
   button: {
-    margin: "0 20px"
+    margin: '0 20px',
   },
   divider: {
-    margin: "30px"
-  }
-});
+    margin: '30px',
+  },
+})
 
 function Customers() {
-  const classes = useStyles();
-  const [formInput, setFormInput] = useState({});
-  const [customers, setCustomers] = useState([]);
-  const [customerId, setCustomerId] = useState("");
+  const classes = useStyles()
+  const [formInput, setFormInput] = useState({})
+  const [customers, setCustomers] = useState([])
+  const [customerId, setCustomerId] = useState('')
 
   // Get all customers when the page is rendered
   useEffect(() => {
-    getCustomers();
-  }, []);
+    getCustomers()
+  }, [])
 
   // Get all customers
   const getCustomers = () => {
-    getResources(`/customers`, setCustomers);
-  };
+    getResources(`/customers`, setCustomers)
+  }
 
   // Save the customerId
   const getCustomerId = (event) => {
-    setCustomerId(event.target.value);
-  };
+    setCustomerId(event.target.value)
+  }
   // Get customer based on passed customerId
   const getCustomer = () => {
-    getResources(`/customers/${customerId}`, setCustomers);
-  };
+    getResources(`/customers/${customerId}`, setCustomers)
+  }
 
   // Get all customers who have an active order
   const getActiveCustomers = () => {
-    getResources(`/customers/active-customers-info`, setCustomers);
-  };
+    getResources(`/customers/active-customers-info`, setCustomers)
+  }
 
   // Get all customers who ordered something in October
   const getOctoberCustomers = () => {
-    getResources(`/customers/october-customers`, setCustomers);
-  };
+    getResources(`/customers/october-customers`, setCustomers)
+  }
 
   // Save the form input
   const handleFormChange = (event) => {
     setFormInput({
       ...formInput,
-      [event.target.name]: event.target.value
-    });
-  };
+      [event.target.name]: event.target.value,
+    })
+  }
   // Create a new customer and update the table
   const createCustomer = (event) => {
-    event.preventDefault();
-    createResource(`/customers/add-customer`, formInput);
-    getCustomers();
-  };
+    event.preventDefault()
+    createResource(`/customers/add-customer`, formInput)
+    getCustomers()
+  }
 
   return (
     <PageContainer>
@@ -156,6 +156,6 @@ function Customers() {
       </Grid>
       <Divider className={classes.divider} />
     </PageContainer>
-  );
+  )
 }
-export default Customers;
+export default Customers
