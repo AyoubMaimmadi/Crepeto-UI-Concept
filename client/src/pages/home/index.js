@@ -5,6 +5,9 @@ import PageContainer from '../../components/PageContainer'
 import InfoCard from '../../components/InfoCard'
 
 const useStyles = makeStyles({
+  main: {
+    backgroundColor: '#b9fbc0',
+  },
   header: {
     fontWeight: 'bold',
     fontSize: '36px',
@@ -27,7 +30,7 @@ function Home() {
       <InfoCard>
         <Typography className={classes.header}>Crepeto</Typography>
         <Typography className={classes.description}>
-          A Small Restaurant Management System
+          A Restaurant Management System
         </Typography>
       </InfoCard>
       <InfoCard>
@@ -46,11 +49,11 @@ function Home() {
           Design and Tech Stack
         </Typography>
         <Typography className={classes.description}>
-          Crepeto was designed using the <b>PERN</b> stack:
-          <br />- PostgreSQL
-          <br />- Express
-          <br />- React
-          <br />- Node.js
+          Crepeto is designed using the <b>PERN</b> technology stack:
+          <br />- <b>PostgreSQL</b>: The database that stores our information
+          <br />- <b>Express</b>: The web server that handles our requests
+          <br />- <b>React</b>: The front-end framework that renders our pages
+          <br />- <b>Node</b>: The back-end framework that handles our requests
         </Typography>
       </InfoCard>
     </PageContainer>
