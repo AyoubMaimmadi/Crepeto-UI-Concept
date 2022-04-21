@@ -1,5 +1,7 @@
 # Crepeto
 
+psql -d crepeto -U dev
+
 - Final project for SOFE 3700U - Data Management Systems
 - An online grocery store for post-secondary students
 - Created using React, Node.js, Express, and PostgreSQL
@@ -46,7 +48,7 @@
 - To connect to Postgres using the created `dev` user, enter `psql -d postgres -U dev`.
 - To create a new database, enter `CREATE DATABASE usave;`.
 - To check if the `usave` database was successfully created, enter `\list`.
-- To connect to the `usave` database, enter `\c usave`, or quit the current session by entering `\q`, and then enter `psql -d usave -U dev`.
+- To connect to the `usave` database, enter `\c usave`, or quit the current session by entering `\q`, and then enter `psql -d crepeto -U dev`.
 
 # Creating tables for the database
 

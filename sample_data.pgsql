@@ -32,6 +32,15 @@ CREATE TABLE public.customer (
     address character varying(255)
 );
 
+CREATE TABLE public.employee (
+    employee_id integer NOT NULL,
+    name character varying(255),
+    phone character varying(255),
+    email character varying(255),
+    address character varying(255),
+    salary integer
+);
+
 
 ALTER TABLE public.customer OWNER TO dev;
 
@@ -268,15 +277,15 @@ COPY public.product (product_id, name, quantity, price, supplier_id) FROM stdin;
 --
 
 COPY public.supplier (supplier_id, name, address, phone) FROM stdin;
-1	Vegetable Haven	123 Midnight Drive, Ajax, ON, A4C9V9	6135550146
-2	Forest Foods	2 Solar Avenue, Markham, ON, B2E7E7	6135550158
-3	Grain Enterprise	49 Square Drive, Toronto, ON, L8E6B8	6135540108
-4	Carb City	12 Torch Road, Toronto, ON, A9C7E7	6135549206
-5	The Butcher	98 Hillside Road, Toronto, ON, L2C9Z4	6135547209
-6	Fish Kingdom	56 Northern Street, Toronto, ON, A2B9Z9	6135541125
-7	Dessert Land	59 Sweet Farm Road, Toronto, ON, L2C7E7	6135530901
-8	Sea World Fishery	2 Rock Bay, Toronto, ON, A2C8E4	6135451198
-9	Land Crawlers	65 Sandy Shores, Markham, ON, M1A6N6	6135442929
+1	Vegetable Haven	123 Midnight Drive, Morocco, ON, A4C9V9	6135550146
+2	Forest Foods	2 Solar Avenue, Morocco, ON, B2E7E7	6135550158
+3	Grain Enterprise	49 Square Drive, Morocco, ON, L8E6B8	6135540108
+4	Carb City	12 Torch Road, Morocco, ON, A9C7E7	6135549206
+5	The Butcher	98 Hillside Road, Morocco, ON, L2C9Z4	6135547209
+6	Fish Kingdom	56 Northern Street, Morocco, ON, A2B9Z9	6135541125
+7	Dessert Land	59 Sweet Farm Road, Morocco, ON, L2C7E7	6135530901
+8	Sea World Fishery	2 Rock Bay, Morocco, ON, A2C8E4	6135451198
+9	Land Crawlers	65 Sandy Shores, Morocco, ON, M1A6N6	6135442929
 \.
 
 
