@@ -7,6 +7,7 @@ import Divider from '@material-ui/core/Divider'
 import PageContainer from '../../components/PageContainer'
 import AppTable from '../../components/AppTable'
 import { getResources, createResource } from '../../helpers'
+import { useHistory } from 'react-router-dom'
 
 const useStyles = makeStyles({
   textField: {
