@@ -1,31 +1,31 @@
-const pool = require("./pool");
+const pool = require('./pool')
 
 // Get all suppliers in the database
 exports.getSuppliers = (req, res) => {
   pool.query(`SELECT * FROM supplier ORDER BY supplier_id`, (err, results) => {
     if (err) {
-      throw err;
+      throw err
     }
 
-    res.status(200).json(results.rows);
-  });
-};
+    res.status(200).json(results.rows)
+  })
+}
 
 // Get a supplier's info based on the given id
 exports.getSupplier = (req, res) => {
-  const id = parseInt(req.params.id);
+  const id = parseInt(req.params.id)
 
   pool.query(
     `SELECT * FROM supplier WHERE supplier_id=${id}`,
     (err, results) => {
       if (err) {
-        throw err;
+        throw err
       }
 
-      res.status(200).json(results.rows);
+      res.status(200).json(results.rows)
     }
-  );
-};
+  )
+}
 
 // View 2: Get the supplier ID and supplier name for suppliers that contribute more than one product
 exports.getMultiProductSuppliers = (req, res) => {
@@ -39,34 +39,34 @@ exports.getMultiProductSuppliers = (req, res) => {
     ORDER BY supplier.name;`,
     (err, results) => {
       if (err) {
-        throw err;
+        throw err
       }
 
-      res.status(200).json(results.rows);
+      res.status(200).json(results.rows)
     }
-  );
-};
+  )
+}
 
 // View 6: Get the names of all products that belong to a specific supplier
 exports.getSupplierProducts = (req, res) => {
-  const supplier_id = parseInt(req.params.id);
+  const supplier_id = parseInt(req.params.id)
 
   pool.query(
     `SELECT DISTINCT product.name FROM product
     JOIN supplier ON product.supplier_id=${supplier_id}`,
     (err, results) => {
       if (err) {
-        throw err;
+        throw err
       }
 
-      res.status(200).json(results.rows);
+      res.status(200).json(results.rows)
     }
-  );
-};
+  )
+}
 
 // Add a new supplier
 exports.addSupplier = (req, res) => {
-  const { name, phone, address } = req.body;
+  const { name, phone, address } = req.body
 
   pool.query(
     `INSERT INTO supplier(name, phone, address) 
@@ -74,11 +74,11 @@ exports.addSupplier = (req, res) => {
     RETURNING name, phone, address;`,
     (err, results) => {
       if (err) {
-        throw err;
+        throw err
       }
 
       // Return newly created supplier
-      res.status(201).send(results.rows);
+      res.status(201).send(results.rows)
     }
-  );
-};
+  )
+}
