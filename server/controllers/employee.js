@@ -74,3 +74,18 @@ exports.addEmployee = (req, res) => {
     }
   )
 }
+
+exports.deleteEmployee = (req, res) => {
+  const id = parseInt(req.params.id)
+
+  pool.query(
+    `DELETE FROM employee WHERE employee_id=${id};`,
+    (err, results) => {
+      if (err) {
+        throw err
+      }
+
+      res.status(200).json(results.rows)
+    }
+  )
+}
