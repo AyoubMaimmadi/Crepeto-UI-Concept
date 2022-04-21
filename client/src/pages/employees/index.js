@@ -106,6 +106,13 @@ function Employees() {
             required
             onChange={handleFormChange}
           />
+          <TextField
+            className={classes.textField}
+            label="Salary"
+            name="salary"
+            required
+            onChange={handleFormChange}
+          />
           <Button variant="contained" size="medium" type="submit">
             Create new employee
           </Button>
