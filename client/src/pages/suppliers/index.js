@@ -1,81 +1,88 @@
-import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import Divider from "@material-ui/core/Divider";
-import PageContainer from "../../components/PageContainer";
-import AppTable from "../../components/AppTable";
-import { getResources, createResource } from "../../helpers";
+import React, { useState, useEffect } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import TextField from '@material-ui/core/TextField'
+import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
+import Divider from '@material-ui/core/Divider'
+import PageContainer from '../../components/PageContainer'
+import AppTable from '../../components/AppTable'
+import { getResources, createResource } from '../../helpers'
 
 const useStyles = makeStyles({
   textField: {
     maxWidth: 175,
-    marginRight: "20px",
-    marginBottom: "20px"
+    marginRight: '20px',
+    marginBottom: '20px',
   },
   button: {
-    margin: "0 20px"
+    margin: '0 20px',
   },
   divider: {
-    margin: "30px"
-  }
-});
+    margin: '30px',
+  },
+  center: {
+    textAlign: 'center',
+    margin: '30px',
+    fontWeight: '750',
+    color: 'orangered',
+    textTransform: 'uppercase',
+  },
+})
 
 function Suppliers() {
-  const classes = useStyles();
-  const [formInput, setFormInput] = useState({});
-  const [suppliers, setSuppliers] = useState([]);
-  const [supplierId, setSupplierId] = useState("");
+  const classes = useStyles()
+  const [formInput, setFormInput] = useState({})
+  const [suppliers, setSuppliers] = useState([])
+  const [supplierId, setSupplierId] = useState('')
 
   // Get all suppliers when the page is rendered
   useEffect(() => {
-    getSuppliers();
-  }, []);
+    getSuppliers()
+  }, [])
 
   // Get all suppliers
   const getSuppliers = () => {
-    getResources(`/suppliers`, setSuppliers);
-  };
+    getResources(`/suppliers`, setSuppliers)
+  }
 
   // Get supplier based on passed supplierId
   const getSupplier = () => {
-    getResources(`/suppliers/${supplierId}`, setSuppliers);
-  };
+    getResources(`/suppliers/${supplierId}`, setSuppliers)
+  }
 
   // Get all suppliers who contributed more than one product
   const getMultiProductSuppliers = () => {
-    getResources(`/suppliers/multi-product-suppliers`, setSuppliers);
-  };
+    getResources(`/suppliers/multi-product-suppliers`, setSuppliers)
+  }
 
   // Save the supplierId
   const getSupplierId = (event) => {
-    setSupplierId(event.target.value);
-  };
+    setSupplierId(event.target.value)
+  }
   // Get the names of products that belong to the specified supplier
   const getSupplierProducts = () => {
     if (supplierId) {
-      getResources(`/suppliers/supplier-products/${supplierId}`, setSuppliers);
+      getResources(`/suppliers/supplier-products/${supplierId}`, setSuppliers)
     }
-  };
+  }
 
   // Save the form input
   const handleFormChange = (event) => {
     setFormInput({
       ...formInput,
-      [event.target.name]: event.target.value
-    });
-  };
+      [event.target.name]: event.target.value,
+    })
+  }
   // Create a new supplier and update the table
   const createSupplier = (event) => {
-    event.preventDefault();
-    createResource(`/suppliers/add-supplier`, formInput);
-    getSuppliers();
-  };
+    event.preventDefault()
+    createResource(`/suppliers/add-supplier`, formInput)
+    getSuppliers()
+  }
 
   return (
     <PageContainer>
-      <h2>Suppliers</h2>
+      <h2 className={classes.center}>Suppliers</h2>
       <AppTable tableData={suppliers} />
       <Divider className={classes.divider} />
       <Grid item container alignItems="center" justify="center">
@@ -151,6 +158,6 @@ function Suppliers() {
       </Grid>
       <Divider className={classes.divider} />
     </PageContainer>
-  );
+  )
 }
-export default Suppliers;
+export default Suppliers

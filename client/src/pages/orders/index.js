@@ -24,6 +24,13 @@ const useStyles = makeStyles({
   divider: {
     margin: '30px',
   },
+  center: {
+    textAlign: 'center',
+    margin: '30px',
+    fontWeight: '750',
+    color: 'orangered',
+    textTransform: 'uppercase',
+  },
 })
 
 function Orders() {
@@ -90,7 +97,7 @@ function Orders() {
 
   return (
     <PageContainer>
-      <h2>Orders</h2>
+      <h2 className={classes.center}>Orders</h2>
       <AppTable tableData={orders} />
       <Divider className={classes.divider} />
       <Grid item container alignItems="center" justify="center">
