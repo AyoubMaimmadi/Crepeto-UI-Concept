@@ -14,6 +14,10 @@ import { Link, useLocation } from 'react-router-dom'
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
+    backgroundColor: '#b9fbc0',
+  },
+  tabs: {
+    backgroundColor: '#b9fbc0',
   },
 })
 
@@ -29,6 +33,7 @@ function Navbar() {
   return (
     <Paper square className={classes.root}>
       <Tabs
+        className={classes.tabs}
         value={value}
         onChange={handleChange}
         variant="fullWidth"
