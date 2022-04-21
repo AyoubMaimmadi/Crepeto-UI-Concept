@@ -1,18 +1,20 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Grid from '@material-ui/core/Grid'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
 
 const useStyles = makeStyles({
   card: {
-    width: "768px",
-    marginBottom: "12px"
-  }
-});
+    width: '768px',
+    marginBottom: '12px',
+    backgroundColor: '#95f9e3',
+    textAlign: 'center',
+  },
+})
 
 export default function SimpleCard(props) {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <Grid container justify="center">
@@ -20,5 +22,5 @@ export default function SimpleCard(props) {
         <CardContent>{props.children}</CardContent>
       </Card>
     </Grid>
-  );
+  )
 }
