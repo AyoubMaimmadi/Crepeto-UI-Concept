@@ -68,7 +68,7 @@ function Employees() {
 
   return (
     <PageContainer>
-      <h2>employees</h2>
+      <h2 className="col text-center m-5">employees</h2>
       <AppTable tableData={employees} />
       <Divider className={classes.divider} />
       <Grid item container alignItems="center" justify="center">
