@@ -52,11 +52,6 @@ function Employees() {
     getResources(`/employees/active-employees-info`, setEmployees)
   }
 
-  // Get all employees who ordered something in October
-  const getOctoberemployees = () => {
-    getResources(`/employees/october-employees`, setEmployees)
-  }
-
   // Save the form input
   const handleFormChange = (event) => {
     setFormInput({
@@ -135,14 +130,6 @@ function Employees() {
           onClick={getActiveemployees}
         >
           Get Active employees Info (View 8)
-        </Button>
-        <Button
-          className={classes.button}
-          variant="contained"
-          size="medium"
-          onClick={getOctoberemployees}
-        >
-          Get October employees (View 9)
         </Button>
       </Grid>
       <Divider className={classes.divider} />

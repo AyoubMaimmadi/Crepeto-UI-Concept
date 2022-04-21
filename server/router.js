@@ -2,6 +2,7 @@ const customer = require('./controllers/customer')
 const order = require('./controllers/order_details')
 const product = require('./controllers/product')
 const supplier = require('./controllers/supplier')
+const employee = require('./controllers/employee')
 
 module.exports = (app) => {
   // Route for checking server status
@@ -15,6 +16,12 @@ module.exports = (app) => {
   app.get('/customers/october-customers', customer.getOctoberCustomers)
   app.get('/customers/:id', customer.getCustomer)
   app.post('/customers/add-customer', customer.addCustomer)
+  // Routes for the employee table
+  app.get('/employees', employee.getEmployees)
+  app.get('/employees/geographic-info', employee.getGeographicInfo)
+  app.get('/employees/active-employee-info', employee.getActiveEmployeesInfo)
+  app.get('/employees/:id', employee.getEmployee)
+  app.post('/employees/add-employee', employee.addEmployee)
   // Routes for the order_details table
   app.get('/orders', order.getOrders)
   app.get('/orders/full-order-info', order.getFullOrderInfo)

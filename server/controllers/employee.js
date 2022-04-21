@@ -45,7 +45,7 @@ exports.getGeographicInfo = (req, res) => {
 
 exports.getActiveEmployeesInfo = (req, res) => {
   pool.query(
-    `SELECT DISTINCT name, phone, email, salary FROM employee;`,
+    `SELECT * FROM employee ORDER BY employee_id;;`,
     (err, results) => {
       if (err) {
         throw err
@@ -58,7 +58,7 @@ exports.getActiveEmployeesInfo = (req, res) => {
 
 // Add a new employee to the database
 exports.addEmployee = (req, res) => {
-  const { name, phone, email, address } = req.body
+  const { name, phone, email, address, salary } = req.body
 
   pool.query(
     `INSERT INTO employee(name, phone, email, address, salary) 
