@@ -49,7 +49,7 @@ function Employees() {
 
   // Get all employees who have an active order
   const getActiveemployees = () => {
-    getResources(`/employees/active-employees-info`, setEmployees)
+    getResources(`/employees`, setEmployees)
   }
 
   // Save the form input
@@ -129,7 +129,7 @@ function Employees() {
           size="medium"
           onClick={getActiveemployees}
         >
-          Get Active employees Info (View 8)
+          Get All Active Employees
         </Button>
       </Grid>
       <Divider className={classes.divider} />
@@ -146,6 +146,22 @@ function Employees() {
           onClick={getEmployee}
         >
           Search Employee
+        </Button>
+      </Grid>
+      <Divider className={classes.divider} />
+      <Grid item container alignItems="center" justify="center">
+        <TextField
+          className={classes.textField}
+          label="Employee ID"
+          onChange={getEmployeeId}
+        />
+        <Button
+          className={classes.button}
+          variant="contained"
+          size="medium"
+          onClick={getEmployee}
+        >
+          Delete Employee
         </Button>
       </Grid>
       <Divider className={classes.divider} />
