@@ -157,6 +157,21 @@ function Suppliers() {
         </Button>
       </Grid>
       <Divider className={classes.divider} />
+      <Grid item container alignItems="center" justify="center">
+        <TextField
+          className={classes.textField}
+          label="Supplier ID"
+          onChange={getSupplierId}
+        />
+        <Button
+          className={classes.button}
+          variant="contained"
+          size="medium"
+          onClick={getSupplier}
+        >
+          Delete Supplier
+        </Button>
+      </Grid>
     </PageContainer>
   )
 }

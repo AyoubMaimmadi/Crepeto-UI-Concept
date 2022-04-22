@@ -162,6 +162,21 @@ function Products() {
         </Button>
       </Grid>
       <Divider className={classes.divider} />
+      <Grid item container alignItems="center" justify="center">
+        <TextField
+          className={classes.textField}
+          label="Product ID"
+          onChange={getProductId}
+        />
+        <Button
+          className={classes.button}
+          variant="contained"
+          size="medium"
+          onClick={getProduct}
+        >
+          Delete Product
+        </Button>
+      </Grid>
     </PageContainer>
   )
 }

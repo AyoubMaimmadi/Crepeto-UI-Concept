@@ -162,6 +162,22 @@ function Customers() {
         </Button>
       </Grid>
       <Divider className={classes.divider} />
+      <Grid item container alignItems="center" justify="center">
+        <TextField
+          className={classes.textField}
+          label="Customer ID"
+          onChange={getCustomerId}
+        />
+        <Button
+          className={classes.button}
+          variant="contained"
+          size="medium"
+          onClick={getCustomer}
+        >
+          Delete Customer
+        </Button>
+      </Grid>
+      <Divider className={classes.divider} />
     </PageContainer>
   )
 }
