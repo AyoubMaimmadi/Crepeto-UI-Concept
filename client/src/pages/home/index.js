@@ -49,11 +49,15 @@ function Home() {
           Design and Tech Stack
         </Typography>
         <Typography className={classes.description}>
-          Crepeto is designed using the <b>PERN</b> technology stack:
-          <br />- <b>PostgreSQL</b>: The database that stores our information
-          <br />- <b>Express</b>: The web server that handles our requests
-          <br />- <b>React</b>: The front-end framework that renders our pages
-          <br />- <b>Node</b>: The back-end framework that handles our requests
+          Crepeto is created using the <b>PERN</b> stack along with many other
+          technologies:
+          <br />
+          &nbsp; <b>PostgreSQL</b>: The database that stores our information
+          <br /> &nbsp; <b>Express</b>: The web server that handles our requests
+          <br />
+          &nbsp; <b>React</b>: The front-end framework that renders our pages
+          <br />
+          &nbsp; <b>Node</b>: The back-end framework that handles our requests
         </Typography>
       </InfoCard>
     </PageContainer>
