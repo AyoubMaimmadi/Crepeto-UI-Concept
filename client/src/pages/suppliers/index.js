@@ -121,7 +121,7 @@ function Suppliers() {
           size="medium"
           onClick={getSuppliers}
         >
-          Get Suppliers (Default View)
+          Get Suppliers
         </Button>
         <Button
           className={classes.button}
@@ -129,7 +129,7 @@ function Suppliers() {
           size="medium"
           onClick={getMultiProductSuppliers}
         >
-          Load Multi-Product Suppliers (View 2)
+          Display Favorite Supplier
         </Button>
       </Grid>
       <Divider className={classes.divider} />
@@ -153,7 +153,7 @@ function Suppliers() {
           size="medium"
           onClick={getSupplierProducts}
         >
-          Get Products from supplier (View 6)
+          Get Products from supplier
         </Button>
       </Grid>
       <Divider className={classes.divider} />

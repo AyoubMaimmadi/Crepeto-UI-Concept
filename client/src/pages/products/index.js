@@ -126,7 +126,7 @@ function Products() {
           size="medium"
           onClick={getProducts}
         >
-          Get Products (Default View)
+          Get Products
         </Button>
         <Button
           className={classes.button}
@@ -134,7 +134,7 @@ function Products() {
           size="medium"
           onClick={getBelowAveragePrices}
         >
-          Get Products of below-average price (View 3)
+          Get Products of below-average price
         </Button>
         <Button
           className={classes.button}
@@ -142,7 +142,7 @@ function Products() {
           size="medium"
           onClick={getProductsInOrder}
         >
-          Get Products in Existing Orders (View 4)
+          Get Products in Existing Orders
         </Button>
       </Grid>
       <Divider className={classes.divider} />

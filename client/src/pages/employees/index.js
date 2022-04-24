@@ -60,9 +60,9 @@ function Employees() {
   }
 
   // Get all employees who have an active order
-  const getActiveemployees = () => {
-    getResources(`/employees`, setEmployees)
-  }
+  // const getActiveemployees = () => {
+  //   getResources(`/employees`, setEmployees)
+  // }
 
   // Save the form input
   const handleFormChange = (event) => {
@@ -133,16 +133,16 @@ function Employees() {
           size="medium"
           onClick={getemployees}
         >
-          Get employees (Default View)
+          Get employees
         </Button>
-        <Button
+        {/* <Button
           className={classes.button}
           variant="contained"
           size="medium"
           onClick={getActiveemployees}
         >
           Get All Active Employees
-        </Button>
+        </Button> */}
       </Grid>
       <Divider className={classes.divider} />
       <Grid item container alignItems="center" justify="center">

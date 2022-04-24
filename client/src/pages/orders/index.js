@@ -150,7 +150,7 @@ function Orders() {
           size="medium"
           onClick={getOrders}
         >
-          Get Orders (Default View)
+          Get Orders
         </Button>
         <Button
           className={classes.button}
@@ -158,7 +158,7 @@ function Orders() {
           size="medium"
           onClick={getFullOrderInfo}
         >
-          Get Full Order Info (View 1)
+          Get Specific Order Info
         </Button>
       </Grid>
       <Divider className={classes.divider} />
@@ -190,10 +190,10 @@ function Orders() {
           size="medium"
           onClick={getOrderDates}
         >
-          Get Order Dates (View 7)
+          Get Order Dates
         </Button>
         <Button variant="contained" size="medium" onClick={getCustomerProducts}>
-          Search Customer Products (View 10)
+          Search Customer Products
         </Button>
       </Grid>
       <Divider className={classes.divider} />
