@@ -113,3 +113,35 @@ exports.addOrder = (req, res) => {
     }
   )
 }
+
+// Delete an order based on the given id
+exports.deleteOrder = (req, res) => {
+  const id = parseInt(req.params.id)
+
+  pool.query(
+    `DELETE FROM order_details WHERE order_id=${id}`,
+    (err, results) => {
+      if (err) {
+        throw err
+      }
+
+      res.status(200).json(`Order ${id} deleted`)
+    }
+  )
+}
+
+// Update an order based on the given id
+exports.updateOrder = (req, res) => {
+  const id = parseInt(req.params.id)
+
+  pool.query(
+    `UPDATE order_details SET order_date='${req.body.order_date}', order_time='${req.body.order_time}', product_quantity=${req.body.product_quantity}, customer_id=${req.body.customer_id}, product_id=${req.body.product_id} WHERE order_id=${id}`,
+    (err, results) => {
+      if (err) {
+        throw err
+      }
+
+      res.status(200).json(`Order ${id} updated`)
+    }
+  )
+}

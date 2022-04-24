@@ -27,7 +27,7 @@ exports.getProduct = (req, res) => {
   )
 }
 
-// Get all ingredients where their price is less than the average price of all existing products
+// Get all proucts where their price is less than the average price of all existing products
 exports.getBelowAveragePrices = (req, res) => {
   pool.query(
     `SELECT name, price FROM product 
@@ -74,4 +74,17 @@ exports.addProduct = (req, res) => {
       res.status(201).json(req.body)
     }
   )
+}
+
+// Delete a product based on the given id
+exports.deleteProduct = (req, res) => {
+  const id = parseInt(req.params.id)
+
+  pool.query(`DELETE FROM product WHERE product_id=${id}`, (err, results) => {
+    if (err) {
+      throw err
+    }
+
+    res.status(200).json(`Product ${id} deleted`)
+  })
 }

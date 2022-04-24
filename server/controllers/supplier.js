@@ -82,3 +82,37 @@ exports.addSupplier = (req, res) => {
     }
   )
 }
+
+// Delete a supplier based on the given id
+exports.deleteSupplier = (req, res) => {
+  const id = parseInt(req.params.id)
+
+  pool.query(
+    `DELETE FROM supplier WHERE supplier_id=${id} RETURNING supplier_id;`,
+    (err, results) => {
+      if (err) {
+        throw err
+      }
+
+      res.status(200).json(results.rows)
+    }
+  )
+}
+
+// Update a supplier based on the given id
+exports.updateSupplier = (req, res) => {
+  const id = parseInt(req.params.id)
+
+  pool.query(
+    `UPDATE supplier SET name='${req.body.name}', phone='${req.body.phone}', address='${req.body.address}'
+    WHERE supplier_id=${id}
+    RETURNING supplier_id;`,
+    (err, results) => {
+      if (err) {
+        throw err
+      }
+
+      res.status(200).json(results.rows)
+    }
+  )
+}
