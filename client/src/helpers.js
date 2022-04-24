@@ -30,8 +30,8 @@ export const deleteResource = async (url, body) => {
   })
 }
 
-// Make PATCH requests using passed url and data
-export const patchResource = async (url, body) => {
+// Make UPDATE requests using passed url and data
+export const updateResource = async (url, body) => {
   await fetch(`http://localhost:3090${url}`, {
     method: 'UPDATE',
     body: JSON.stringify(body),
