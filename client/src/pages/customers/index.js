@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button'
 import Divider from '@material-ui/core/Divider'
 import PageContainer from '../../components/PageContainer'
 import AppTable from '../../components/AppTable'
-import { getResources, createResource } from '../../helpers'
+import { getResources, createResource, deleteResource } from '../../helpers'
 
 const useStyles = makeStyles({
   textField: {
@@ -54,14 +54,14 @@ function Customers() {
     getResources(`/customers/${customerId}`, setCustomers)
   }
 
+  // Delete customer based on passed customerId
+  const deleteCustomer = () => {
+    deleteResource(`/customers/${customerId}`, setCustomers)
+  }
+
   // Get all customers who have an active order
   const getActiveCustomers = () => {
     getResources(`/customers/active-customers-info`, setCustomers)
-  }
-
-  // Get all customers who ordered something in October
-  const getOctoberCustomers = () => {
-    getResources(`/customers/october-customers`, setCustomers)
   }
 
   // Save the form input
@@ -134,15 +134,7 @@ function Customers() {
           size="medium"
           onClick={getActiveCustomers}
         >
-          Get Active Customers Info (View 8)
-        </Button>
-        <Button
-          className={classes.button}
-          variant="contained"
-          size="medium"
-          onClick={getOctoberCustomers}
-        >
-          Get October Customers (View 9)
+          Get Active Customers
         </Button>
       </Grid>
       <Divider className={classes.divider} />
@@ -172,7 +164,7 @@ function Customers() {
           className={classes.button}
           variant="contained"
           size="medium"
-          onClick={getCustomer}
+          onClick={deleteCustomer}
         >
           Delete Customer
         </Button>

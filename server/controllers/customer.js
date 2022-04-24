@@ -92,3 +92,38 @@ exports.addCustomer = (req, res) => {
     }
   )
 }
+
+// Delete a customer based on the given id
+exports.deleteCustomer = (req, res) => {
+  const id = parseInt(req.params.id)
+
+  pool.query(
+    `DELETE FROM customer WHERE customer_id=${id}
+    RETURNING customer_id;`,
+    (err, results) => {
+      if (err) {
+        throw err
+      }
+
+      res.status(200).json(results.rows)
+    }
+  )
+}
+
+// Update a customer based on the given id
+exports.updateCustomer = (req, res) => {
+  const id = parseInt(req.params.id)
+
+  pool.query(
+    `UPDATE customer SET name='${req.body.name}', phone='${req.body.phone}', email='${req.body.email}', address='${req.body.address}'
+    WHERE customer_id=${id}
+    RETURNING customer_id;`,
+    (err, results) => {
+      if (err) {
+        throw err
+      }
+
+      res.status(200).json(results.rows)
+    }
+  )
+}

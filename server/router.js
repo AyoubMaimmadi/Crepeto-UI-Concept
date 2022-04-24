@@ -15,12 +15,16 @@ module.exports = (app) => {
   app.get('/customers/october-customers', customer.getOctoberCustomers)
   app.get('/customers/:id', customer.getCustomer)
   app.post('/customers/add-customer', customer.addCustomer)
+  app.delete('/customers/:id', customer.deleteCustomer)
+  app.put('/customers/:id', customer.updateCustomer)
   // Routes for the employee table
   app.get('/employees', employee.getEmployees)
   app.get('/employees/geographic-info', employee.getGeographicInfo)
   app.get('/employees/active-employee-info', employee.getActiveEmployeesInfo)
   app.get('/employees/:id', employee.getEmployee)
   app.post('/employees/add-employee', employee.addEmployee)
+  app.delete('/employees/:id', employee.deleteEmployee)
+  app.put('/employees/:id', employee.updateEmployee)
   // Routes for the order_details table
   app.get('/orders', order.getOrders)
   app.get('/orders/full-order-info', order.getFullOrderInfo)

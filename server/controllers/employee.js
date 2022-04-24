@@ -74,11 +74,30 @@ exports.addEmployee = (req, res) => {
   )
 }
 
+// Delete an employee based on the given id
 exports.deleteEmployee = (req, res) => {
   const id = parseInt(req.params.id)
 
   pool.query(
-    `DELETE FROM employee WHERE employee_id=${id};`,
+    `DELETE FROM employee WHERE employee_id=${id} RETURNING employee_id;`,
+    (err, results) => {
+      if (err) {
+        throw err
+      }
+
+      res.status(200).json(results.rows)
+    }
+  )
+}
+
+// Update an employee based on the given id
+exports.updateEmployee = (req, res) => {
+  const id = parseInt(req.params.id)
+
+  pool.query(
+    `UPDATE employee SET name='${req.body.name}', phone='${req.body.phone}', email='${req.body.email}', address='${req.body.address}', salary='${req.body.salary}'
+    WHERE employee_id=${id}
+    RETURNING employee_id;`,
     (err, results) => {
       if (err) {
         throw err
