@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button'
 import Divider from '@material-ui/core/Divider'
 import PageContainer from '../../components/PageContainer'
 import AppTable from '../../components/AppTable'
-import { getResources, createResource } from '../../helpers'
+import { getResources, createResource, deleteResource } from '../../helpers'
 
 const useStyles = makeStyles({
   textField: {
@@ -52,6 +52,11 @@ function Employees() {
   // Get employee based on passed employeeId
   const getEmployee = () => {
     getResources(`/employees/${employeeId}`, setEmployees)
+  }
+
+  // Delete employee based on passed employeeId
+  const deleteEmployee = () => {
+    deleteResource(`/employees/${employeeId}`, setEmployees)
   }
 
   // Get all employees who have an active order
@@ -166,7 +171,7 @@ function Employees() {
           className={classes.button}
           variant="contained"
           size="medium"
-          onClick={getEmployee}
+          onClick={deleteEmployee}
         >
           Delete Employee
         </Button>

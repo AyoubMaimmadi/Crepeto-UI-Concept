@@ -29,3 +29,13 @@ export const deleteResource = async (url, body) => {
     return response.json()
   })
 }
+
+// Make PATCH requests using passed url and data
+export const patchResource = async (url, body) => {
+  await fetch(`http://localhost:3090${url}`, {
+    method: 'UPDATE',
+    body: JSON.stringify(body),
+  }).then((response) => {
+    return response.json()
+  })
+}
