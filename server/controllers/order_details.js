@@ -30,7 +30,7 @@ exports.getOrder = (req, res) => {
   )
 }
 
-// View 1: Get the customer name, product name, and product quantity for all orders
+// Get the customer name, product name, and product quantity for all orders
 exports.getFullOrderInfo = (req, res) => {
   pool.query(
     `SELECT customer.name as customer_name, product.name, order_details.product_quantity FROM order_details
@@ -46,7 +46,7 @@ exports.getFullOrderInfo = (req, res) => {
   )
 }
 
-// View 7: Get the order ID, order dates, and shipping dates for all of a customer's orders
+// Get the order ID, order dates, and shipping dates for all of a customer's orders
 exports.getCustomerOrderDates = (req, res) => {
   const customer_id = parseInt(req.params.id)
 
@@ -63,7 +63,7 @@ exports.getCustomerOrderDates = (req, res) => {
   )
 }
 
-// View 10: Get the products from all of a customer's orders
+// Get the products from all of a customer's orders
 exports.getProductsFromOrders = (req, res) => {
   const customer_id = parseInt(req.params.id)
 

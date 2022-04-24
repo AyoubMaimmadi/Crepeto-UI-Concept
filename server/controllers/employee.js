@@ -27,7 +27,7 @@ exports.getEmployee = (req, res) => {
   )
 }
 
-// View 5: Get all addresses from employees and suppliers for logistical purposes
+// Get all addresses from employees and suppliers for logistical purposes
 exports.getGeographicInfo = (req, res) => {
   pool.query(
     `SELECT address FROM employee
@@ -69,7 +69,6 @@ exports.addEmployee = (req, res) => {
         throw err
       }
 
-      // Return the newly created employee
       res.status(201).send(results.rows)
     }
   )

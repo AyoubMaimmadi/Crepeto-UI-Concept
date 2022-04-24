@@ -27,7 +27,7 @@ exports.getSupplier = (req, res) => {
   )
 }
 
-// View 2: Get the supplier ID and supplier name for suppliers that contribute more than one product
+// Get the supplier ID and supplier name for suppliers that contribute more than one product
 exports.getMultiProductSuppliers = (req, res) => {
   pool.query(
     `SELECT supplier.supplier_id, supplier.name FROM supplier
@@ -47,7 +47,7 @@ exports.getMultiProductSuppliers = (req, res) => {
   )
 }
 
-// View 6: Get the names of all products that belong to a specific supplier
+// Get the names of all products that belong to a specific supplier
 exports.getSupplierProducts = (req, res) => {
   const supplier_id = parseInt(req.params.id)
 

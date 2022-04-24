@@ -5,7 +5,6 @@ const supplier = require('./controllers/supplier')
 const employee = require('./controllers/employee')
 
 module.exports = (app) => {
-  // Route for checking server status
   app.get('/', (req, res) => {
     res.send(`Welcome to Crepeto's API`)
   })

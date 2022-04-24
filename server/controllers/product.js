@@ -27,7 +27,7 @@ exports.getProduct = (req, res) => {
   )
 }
 
-// View 3: Get all ingredients where their price is less than the average price of all existing products
+// Get all ingredients where their price is less than the average price of all existing products
 exports.getBelowAveragePrices = (req, res) => {
   pool.query(
     `SELECT name, price FROM product 
@@ -42,7 +42,7 @@ exports.getBelowAveragePrices = (req, res) => {
   )
 }
 
-// View 4: Get all products, and see which ones belong to an existing order
+// Get all products, and see which ones belong to an existing order
 exports.getProductsInOrder = (req, res) => {
   pool.query(
     `SELECT product.name, order_details.order_id FROM order_details 
