@@ -16,7 +16,7 @@ module.exports = (app) => {
   app.get('/customers/:id', customer.getCustomer)
   app.post('/customers/add-customer', customer.addCustomer)
   app.delete('/customers/:id', customer.deleteCustomer)
-  app.put('/customers/:id', customer.updateCustomer)
+  // app.put('/customers/:id', customer.updateCustomer)
   // Routes for the employee table
   app.get('/employees', employee.getEmployees)
   app.get('/employees/geographic-info', employee.getGeographicInfo)
@@ -24,7 +24,7 @@ module.exports = (app) => {
   app.get('/employees/:id', employee.getEmployee)
   app.post('/employees/add-employee', employee.addEmployee)
   app.delete('/employees/:id', employee.deleteEmployee)
-  app.put('/employees/:id', employee.updateEmployee)
+  // app.put('/employees/:id', employee.updateEmployee)
   // Routes for the order_details table
   app.get('/orders', order.getOrders)
   app.get('/orders/full-order-info', order.getFullOrderInfo)
@@ -32,12 +32,15 @@ module.exports = (app) => {
   app.get('/orders/products-from-orders/:id', order.getProductsFromOrders)
   app.get('/orders/:id', order.getOrder)
   app.post('/orders/add-order', order.addOrder)
+  app.delete('/orders/:id', order.deleteOrder)
+  app.put('/orders/:id', order.updateOrder)
   // Routes for the product table
   app.get('/products', product.getProducts)
   app.get('/products/below-average-prices', product.getBelowAveragePrices)
   app.get('/products/products-in-orders', product.getProductsInOrder)
   app.get('/products/:id', product.getProduct)
   app.post('/products/add-product', product.addProduct)
+  app.delete('/products/:id', product.deleteProduct)
   // Routes for the supplier table
   app.get('/suppliers', supplier.getSuppliers)
   app.get(
@@ -47,4 +50,6 @@ module.exports = (app) => {
   app.get('/suppliers/supplier-products/:id', supplier.getSupplierProducts)
   app.get('/suppliers/:id', supplier.getSupplier)
   app.post('/suppliers/add-supplier', supplier.addSupplier)
+  app.delete('/suppliers/:id', supplier.deleteSupplier)
+  app.put('/suppliers/:id', supplier.updateSupplier)
 }
