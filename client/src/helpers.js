@@ -19,3 +19,13 @@ export const createResource = async (url, body) => {
     return response.json()
   })
 }
+
+// Make DELETE requests using passed url and data
+export const deleteResource = async (url, body) => {
+  await fetch(`http://localhost:3090${url}`, {
+    method: 'DELETE',
+    body: JSON.stringify(body),
+  }).then((response) => {
+    return response.json()
+  })
+}
