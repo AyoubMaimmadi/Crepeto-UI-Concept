@@ -94,6 +94,14 @@ function Navbar() {
           to={'/employees'}
           value="/employees"
           label="Employees"
+        />{' '}
+        <Tab
+          icon={<LocationCityIcon className={classes.icon} />}
+          className={classes.text}
+          component={Link}
+          to={'/billing'}
+          value="/billing"
+          label="Billing"
         />
       </Tabs>
     </Paper>

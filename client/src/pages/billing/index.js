@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PageContainer from '../../components/PageContainer'
 import AppTable from '../../components/AppTable'
 
-function Employees() {
+function Billing() {
   const [billing, setBilling] = useState([])
 
   // Get all Employees when the page is rendered
@@ -22,4 +22,4 @@ function Employees() {
     </PageContainer>
   )
 }
-export default Employees
+export default Billing

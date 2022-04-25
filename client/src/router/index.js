@@ -6,6 +6,7 @@ import Employees from '../pages/employees'
 import Orders from '../pages/orders'
 import Products from '../pages/products'
 import Suppliers from '../pages/suppliers'
+import Billing from '../pages/billing'
 
 const AppRouter = () => {
   return (
@@ -16,6 +17,7 @@ const AppRouter = () => {
       <Route path="/orders" component={Orders} />
       <Route path="/products" component={Products} />
       <Route path="/suppliers" component={Suppliers} />
+      <Route path="/billing" component={Billing} />
     </Switch>
   )
 }
