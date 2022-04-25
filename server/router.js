@@ -17,7 +17,7 @@ module.exports = (app) => {
   app.get('/customers/:id', customer.getCustomer)
   app.post('/customers/add-customer', customer.addCustomer)
   app.delete('/customers/:id', customer.deleteCustomer)
-  // app.put('/customers/:id', customer.updateCustomer)
+  app.put('/customers/:id', customer.updateCustomer)
   // Routes for the employee table
   app.get('/employees', employee.getEmployees)
   app.get('/employees/geographic-info', employee.getGeographicInfo)
@@ -25,7 +25,7 @@ module.exports = (app) => {
   app.get('/employees/:id', employee.getEmployee)
   app.post('/employees/add-employee', employee.addEmployee)
   app.delete('/employees/:id', employee.deleteEmployee)
-  // app.put('/employees/:id', employee.updateEmployee)
+  app.put('/employees/:id', employee.updateEmployee)
   // Routes for the order_details table
   app.get('/orders', order.getOrders)
   app.get('/orders/full-order-info', order.getFullOrderInfo)
@@ -53,4 +53,8 @@ module.exports = (app) => {
   app.post('/suppliers/add-supplier', supplier.addSupplier)
   app.delete('/suppliers/:id', supplier.deleteSupplier)
   app.put('/suppliers/:id', supplier.updateSupplier)
+  // Routes for the billing table
+  app.get('/billing/:id', billing.getMonthlyBilling)
+  app.get('/billing/:id', billing.getMonthlyExpense)
+  app.get('/billing/:id', billing.getMonthlyRevenue)
 }
