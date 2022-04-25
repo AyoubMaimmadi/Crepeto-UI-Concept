@@ -88,7 +88,7 @@ function Navbar() {
           label="SUPPLIERS"
         />
         <Tab
-          icon={<LocationCityIcon className={classes.icon} />}
+          icon={<PeopleIcon className={classes.icon} />}
           className={classes.text}
           component={Link}
           to={'/employees'}
