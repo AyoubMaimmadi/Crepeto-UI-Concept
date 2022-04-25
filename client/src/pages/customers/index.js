@@ -126,7 +126,7 @@ function Customers() {
           size="medium"
           onClick={getCustomers}
         >
-          Get Customers (Default View)
+          Get Customers
         </Button>
         <Button
           className={classes.button}
