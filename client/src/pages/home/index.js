@@ -26,7 +26,6 @@ function Home() {
   return (
     <PageContainer>
       <br />
-      {/* <h2>Home</h2> */}
       <InfoCard>
         <Typography className={classes.header}>Crepeto</Typography>
         <Typography className={classes.description}>
