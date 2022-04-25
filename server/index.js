@@ -13,7 +13,7 @@ app.use(cors())
 app.use(bodyParser.json({ type: '*/*' }))
 router(app)
 
-const PORT = 3090
+const PORT = 3090 || process.env.PORT
 const server = http.createServer(app)
 server.listen(PORT)
-console.log(`Server running on: http://localhost:${PORT}`)
+console.log(`Server Live in: http://localhost:${PORT}`)
