@@ -3,6 +3,7 @@ const order = require('./controllers/order_details')
 const product = require('./controllers/product')
 const supplier = require('./controllers/supplier')
 const employee = require('./controllers/employee')
+const billing = require('./controllers/billing')
 
 module.exports = (app) => {
   app.get('/', (req, res) => {
