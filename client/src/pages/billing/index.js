@@ -66,7 +66,7 @@ function Billing() {
 
   return (
     <PageContainer>
-      <h2 className={classes.center}>Billing</h2>
+      <h2 className={classes.center}>Billing (MAD)</h2>
       <AppTable tableData={billing} />
       <Divider className={classes.divider} />
 
@@ -77,18 +77,41 @@ function Billing() {
           size="medium"
           onClick={getBilling}
         >
-          Get Billing
+          Get All Billings
         </Button>
+      </Grid>
+      <Divider className={classes.divider} />
+      <Grid item container alignItems="center" justify="center">
+        <TextField
+          className={classes.textField}
+          label="Month Number"
+          onChange={getBillingId}
+        />
+        <Button
+          className={classes.button}
+          variant="contained"
+          size="medium"
+          onClick={getBilling}
+        >
+          Search Month
+        </Button>
+      </Grid>
+      <Divider className={classes.divider} />
+      <Grid item container alignItems="center" justify="center">
+        <TextField
+          className={classes.textField}
+          label="Month Number"
+          onChange={getBillingId}
+        />
         <Button
           className={classes.button}
           variant="contained"
           size="medium"
           onClick={getMonthBilling}
         >
-          Get Specific Month Billing
+          More Info
         </Button>
       </Grid>
-      <Divider className={classes.divider} />
     </PageContainer>
   )
 }

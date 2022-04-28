@@ -133,16 +133,8 @@ function Employees() {
           size="medium"
           onClick={getemployees}
         >
-          Get employees
+          View All employees
         </Button>
-        {/* <Button
-          className={classes.button}
-          variant="contained"
-          size="medium"
-          onClick={getActiveemployees}
-        >
-          Get All Active Employees
-        </Button> */}
       </Grid>
       <Divider className={classes.divider} />
       <Grid item container alignItems="center" justify="center">
