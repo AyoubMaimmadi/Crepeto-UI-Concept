@@ -31,6 +31,12 @@ const useStyles = makeStyles({
     color: 'orangered',
     textTransform: 'uppercase',
   },
+  span: {
+    color: 'red',
+    fontWeight: 'bold',
+    textTransform: 'capitalize',
+    fontSize: '1rem',
+  },
 })
 
 function Billing() {
@@ -66,7 +72,9 @@ function Billing() {
 
   return (
     <PageContainer>
-      <h2 className={classes.center}>Billing (MAD)</h2>
+      <h2 className={classes.center}>
+        Billing <span className={classes.span}>in MAD</span>
+      </h2>
       <AppTable tableData={billing} />
       <Divider className={classes.divider} />
 
