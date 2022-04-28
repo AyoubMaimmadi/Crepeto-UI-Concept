@@ -6,6 +6,7 @@ exports.getProducts = (req, res) => {
     if (err) {
       throw err
     }
+
     res.status(200).json(results.rows)
   })
 }
@@ -13,12 +14,14 @@ exports.getProducts = (req, res) => {
 // Get a product's info based on the given id
 exports.getProduct = (req, res) => {
   const id = parseInt(req.params.id)
+
   pool.query(
     `SELECT * FROM product WHERE product_id=${id};`,
     (err, results) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )
@@ -33,6 +36,7 @@ exports.getBelowAveragePrices = (req, res) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )
@@ -48,6 +52,7 @@ exports.getProductsInOrder = (req, res) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )
@@ -56,6 +61,7 @@ exports.getProductsInOrder = (req, res) => {
 // Add a new product
 exports.addProduct = (req, res) => {
   const { name, quantity, price, supplier_id } = req.body
+
   pool.query(
     `INSERT INTO product(name, quantity, price, supplier_id) 
     VALUES('${name}', '${quantity}', ${price}, ${supplier_id})`,
@@ -63,6 +69,7 @@ exports.addProduct = (req, res) => {
       if (err) {
         throw err
       }
+
       // Return the added product
       res.status(201).json(req.body)
     }
@@ -72,10 +79,12 @@ exports.addProduct = (req, res) => {
 // Delete a product based on the given id
 exports.deleteProduct = (req, res) => {
   const id = parseInt(req.params.id)
+
   pool.query(`DELETE FROM product WHERE product_id=${id}`, (err, results) => {
     if (err) {
       throw err
     }
+
     res.status(200).json(`Product ${id} deleted`)
   })
 }

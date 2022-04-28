@@ -6,6 +6,7 @@ exports.getSuppliers = (req, res) => {
     if (err) {
       throw err
     }
+
     res.status(200).json(results.rows)
   })
 }
@@ -13,12 +14,14 @@ exports.getSuppliers = (req, res) => {
 // Get a supplier's info based on the given id
 exports.getSupplier = (req, res) => {
   const id = parseInt(req.params.id)
+
   pool.query(
     `SELECT * FROM supplier WHERE supplier_id=${id}`,
     (err, results) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )
@@ -38,6 +41,7 @@ exports.getMultiProductSuppliers = (req, res) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )
@@ -46,6 +50,7 @@ exports.getMultiProductSuppliers = (req, res) => {
 // Get the names of all products that belong to a specific supplier
 exports.getSupplierProducts = (req, res) => {
   const supplier_id = parseInt(req.params.id)
+
   pool.query(
     `SELECT DISTINCT product.name FROM product
     JOIN supplier ON product.supplier_id=${supplier_id}`,
@@ -53,6 +58,7 @@ exports.getSupplierProducts = (req, res) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )
@@ -61,6 +67,7 @@ exports.getSupplierProducts = (req, res) => {
 // Add a new supplier
 exports.addSupplier = (req, res) => {
   const { name, phone, address } = req.body
+
   pool.query(
     `INSERT INTO supplier(name, phone, address) 
     VALUES('${name}', '${phone}', '${address}')
@@ -69,6 +76,7 @@ exports.addSupplier = (req, res) => {
       if (err) {
         throw err
       }
+
       // Return newly created supplier
       res.status(201).send(results.rows)
     }
@@ -78,12 +86,14 @@ exports.addSupplier = (req, res) => {
 // Delete a supplier based on the given id
 exports.deleteSupplier = (req, res) => {
   const id = parseInt(req.params.id)
+
   pool.query(
     `DELETE FROM supplier WHERE supplier_id=${id} RETURNING supplier_id;`,
     (err, results) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )
@@ -92,6 +102,7 @@ exports.deleteSupplier = (req, res) => {
 // Update a supplier based on the given id
 exports.updateSupplier = (req, res) => {
   const id = parseInt(req.params.id)
+
   pool.query(
     `UPDATE supplier SET name='${req.body.name}', phone='${req.body.phone}', address='${req.body.address}'
     WHERE supplier_id=${id}
@@ -100,6 +111,7 @@ exports.updateSupplier = (req, res) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )

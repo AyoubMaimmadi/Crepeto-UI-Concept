@@ -6,6 +6,7 @@ exports.getCustomers = (req, res) => {
     if (err) {
       throw err
     }
+
     res.status(200).json(results.rows)
   })
 }
@@ -13,12 +14,14 @@ exports.getCustomers = (req, res) => {
 // Get a customer's info based on the given id
 exports.getCustomer = (req, res) => {
   const id = parseInt(req.params.id)
+
   pool.query(
     `SELECT * FROM customer WHERE customer_id=${id};`,
     (err, results) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )
@@ -34,6 +37,7 @@ exports.getGeographicInfo = (req, res) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )
@@ -48,6 +52,7 @@ exports.getActiveCustomersInfo = (req, res) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )
@@ -63,6 +68,7 @@ exports.getOctoberCustomers = (req, res) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )
@@ -71,6 +77,7 @@ exports.getOctoberCustomers = (req, res) => {
 // Add a new customer
 exports.addCustomer = (req, res) => {
   const { name, phone, email, address } = req.body
+
   pool.query(
     `INSERT INTO customer(name, phone, email, address) 
     VALUES('${name}', '${phone}', '${email}', '${address}')
@@ -79,6 +86,8 @@ exports.addCustomer = (req, res) => {
       if (err) {
         throw err
       }
+
+      // Return the newly created customer
       res.status(201).send(results.rows)
     }
   )
@@ -87,6 +96,7 @@ exports.addCustomer = (req, res) => {
 // Delete a customer based on the given id
 exports.deleteCustomer = (req, res) => {
   const id = parseInt(req.params.id)
+
   pool.query(
     `DELETE FROM customer WHERE customer_id=${id}
     RETURNING customer_id;`,
@@ -94,6 +104,7 @@ exports.deleteCustomer = (req, res) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )
@@ -102,6 +113,7 @@ exports.deleteCustomer = (req, res) => {
 // Update a customer based on the given id
 exports.updateCustomer = (req, res) => {
   const id = parseInt(req.params.id)
+
   pool.query(
     `UPDATE customer SET name='${req.body.name}', phone='${req.body.phone}', email='${req.body.email}', address='${req.body.address}'
     WHERE customer_id=${id}
@@ -110,6 +122,7 @@ exports.updateCustomer = (req, res) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )

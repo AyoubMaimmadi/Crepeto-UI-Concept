@@ -8,6 +8,7 @@ exports.getOrders = (req, res) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )
@@ -16,12 +17,14 @@ exports.getOrders = (req, res) => {
 // Get an order's info based on the given id
 exports.getOrder = (req, res) => {
   const id = parseInt(req.params.id)
+
   pool.query(
     `SELECT * FROM order_details WHERE order_id=${id};`,
     (err, results) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )
@@ -37,6 +40,7 @@ exports.getFullOrderInfo = (req, res) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )
@@ -45,6 +49,7 @@ exports.getFullOrderInfo = (req, res) => {
 // Get the order ID, order dates, and shipping dates for all of a customer's orders
 exports.getCustomerOrderDates = (req, res) => {
   const customer_id = parseInt(req.params.id)
+
   pool.query(
     `SELECT DISTINCT order_id, order_date, order_time FROM order_details
     JOIN customer ON order_details.customer_id=${customer_id}`,
@@ -52,6 +57,7 @@ exports.getCustomerOrderDates = (req, res) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )
@@ -60,6 +66,7 @@ exports.getCustomerOrderDates = (req, res) => {
 // Get the products from all of a customer's orders
 exports.getProductsFromOrders = (req, res) => {
   const customer_id = parseInt(req.params.id)
+
   pool.query(
     `SELECT product.name, product_quantity FROM order_details
     JOIN product on product.product_id=order_details.product_id
@@ -68,6 +75,7 @@ exports.getProductsFromOrders = (req, res) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(results.rows)
     }
   )
@@ -77,12 +85,14 @@ exports.getProductsFromOrders = (req, res) => {
 exports.addOrder = (req, res) => {
   const { order_date, order_time, product_quantity, customer_id, product_id } =
     req.body
+
   pool.query(
     `SELECT quantity FROM product WHERE product_id=${product_id}`,
     (err, results) => {
       if (err) {
         throw err
       }
+
       // Check if the order's quantity can be matched
       if (product_quantity <= results.rows[0].quantity) {
         pool.query(
@@ -92,6 +102,7 @@ exports.addOrder = (req, res) => {
             if (err) {
               throw err
             }
+
             // Return newly created order
             res.status(201).json(req.body)
           }
@@ -106,12 +117,14 @@ exports.addOrder = (req, res) => {
 // Delete an order based on the given id
 exports.deleteOrder = (req, res) => {
   const id = parseInt(req.params.id)
+
   pool.query(
     `DELETE FROM order_details WHERE order_id=${id}`,
     (err, results) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(`Order ${id} deleted`)
     }
   )
@@ -120,12 +133,14 @@ exports.deleteOrder = (req, res) => {
 // Update an order based on the given id
 exports.updateOrder = (req, res) => {
   const id = parseInt(req.params.id)
+
   pool.query(
     `UPDATE order_details SET order_date='${req.body.order_date}', order_time='${req.body.order_time}', product_quantity=${req.body.product_quantity}, customer_id=${req.body.customer_id}, product_id=${req.body.product_id} WHERE order_id=${id}`,
     (err, results) => {
       if (err) {
         throw err
       }
+
       res.status(200).json(`Order ${id} updated`)
     }
   )

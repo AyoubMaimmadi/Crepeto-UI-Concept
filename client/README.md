@@ -1,10 +1,12 @@
-# Crepeto
+# Crepeto (Still In Production)
 
-## Database Project using React: (JS/MUI/PSQL/...)
+![](./public/crepeto.PNG)
+
+## Database Project using React: (JS/BOOTSTRAP/PSQL/...)
 
 ## Allows the manager the have full managerial control over his business
 
-### He can Add, Delete, and Search Orders, Customer, Suppliers, and Employees
+### He can Add, Delete, and Search ITems, Inventory, and Employees
 
 To use/view this system you need to:
 
@@ -21,3 +23,9 @@ To use/view this system you need to:
 ##### - `npm start` to open developement at localhost:3000
 
 ### You can view this website using the link https://crepeto.netlify.app/
+
+### You can view this website' API using the link https://crepeto-api.herokuapp.com/
+
+## Or Using Phone
+
+![](./public/qrcode.PNG)
