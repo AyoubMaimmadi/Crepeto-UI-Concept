@@ -20,4 +20,8 @@ To use/view this system you need to:
 
 ##### - `npm start` to open developement at localhost:3000
 
-### You can view this website using the link https://crepeto.netlify.app/
+### You can view this website using the link https://crepeto-ui-concept.netlify.app
+
+## Or Using Phone
+
+![](../client/public/qrcode.PNG)
