@@ -25,7 +25,3 @@ To use/view this system you need to:
 ### You can view this website using the link https://crepeto.vercel.app/
 
 ### You can view this website using the link https://crepeto-ui-concept.vercel.app
-
-## Or Using Phone
-
-![](./public/qrcode.PNG)
