@@ -22,6 +22,4 @@ To use/view this system you need to:
 
 ##### - `npm start` to open developement at localhost:3000
 
-### You can view this website using the link https://crepeto.vercel.app/
-
 ### You can view this website using the link https://crepeto-ui-concept.vercel.app
