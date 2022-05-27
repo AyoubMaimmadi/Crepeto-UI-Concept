@@ -1,12 +1,12 @@
-# Crepeto (Still In Production)
+# Crepeto 
 
 ![](client/public/crepeto.PNG)
 
-## Database Project using React: (JS/BOOTSTRAP/PSQL/...)
+## Database Project UI concept using React and Bootstrap.
 
 ## Allows the manager the have full managerial control over his business
 
-### He can Add, Delete, and Search ITems, Inventory, and Employees
+### The admin or manager can Add, Delete, manage, and Search ITems, Inventory, Employees, amd more.
 
 To use/view this system you need to:
 
@@ -24,6 +24,3 @@ To use/view this system you need to:
 
 ### You can view this website using the link https://crepeto-ui-concept.netlify.app
 
-## Or Using Phone
-
-![](client/public/qrcode.PNG)
