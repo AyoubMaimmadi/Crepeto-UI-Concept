@@ -1,4 +1,4 @@
-# Crepeto (Still In Production)
+# Crepeto
 
 ![](./public/crepeto.PNG)
 
